@@ -10,6 +10,9 @@ build/main: src/main.c | build
 
 build: ; mkdir $@
 
+build/main.d: src/main.c | build
+	$(CC) $(CFLAGS) -M $^ -MF $@
+
 which-sdl: has-sdl2 has-sdl3
 
 has-sdl2:
